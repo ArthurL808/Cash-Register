@@ -11,32 +11,35 @@
     <div class="calculator">
         <input type="text" class="calculator-screen" value="0" disabled />
         <div class="calculatorKeys">
-            <button value="7"><h3>7</h3></button>
-            <button value="8"><h3>8</h3></button>
-            <button value="9"><h3>9</h3></button>
-            <button value="/" class="op"><h3>/</h3></button>
-            <button id="clear"><h3>clear</h3></button>
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="/" class="op">/</button>
+            <button class="cash" id="clear">clear</button>
 
-        <button value="4"><h3>4</h3></button>
-        <button value="5"><h3>5</h3></button>
-        <button value="6"><h3>6</h3></button>
-        <button value="*" class="op"><h3>X</h3></button>
-        <button id="getBalance"><h3>get balance</h3></button>
+        <button value="4">4</button>
+        <button value="5">5</button>
+        <button value="6">6</button>
+        <button value="*" class="op">X</button>
+        <button class="cash" id="getBalance">get bal</button>
         
-        <button value="1"><h3>1</h3></button>
-        <button value="2"><h3>2</h3></button>
-        <button value="3"><h3>3</h3></button>
-        <button value="-" class="op"><h3>-</h3></button>
-        <button id="depositCash"><h3>deposit cash</h3></button>
+        <button value="1">1</button>
+        <button value="2">2</button>
+        <button value="3">3</button>
+        <button value="-" class="op">-</button>
+        <button id="depositCash" class="cash" >deposit</button>
         
-        <button value="0"><h3>0</h3></button>
-        <button value="00"><h3>00</h3></button> 
-        <button value="."><h3>.</h3></button>
-        <button class="op" value="+"><h3>+</h3></button>
-        <button id="withdrawCash"><h3>withdraw cash</h3></button>
+        <button value="0">0</button>
+        <button value="00">00</button> 
+        <button value=".">.</button>
+        <button class="op" value="+">+</button>
+        <button class="cash" id="withdrawCash">withdraw</button>
  
-      <button value="=" class="op"><h3>=</h3></button>
+      <button value="=" class="op" id="equal">=</button>
+      
     </div>
   </div>
+<script src="js/calculator.js"></script>
+<script src="js/cash_register.js"></script>
 </body>
 </html>
