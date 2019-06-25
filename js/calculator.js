@@ -1,20 +1,29 @@
 function calculator() {
-    var memory = 0
+    var memory = 0;
     var total = 0;
+    var balance = 100;
     var load = function(x) {
-       if(typeof x === 'number'){
-        total = x
-         return total
-       }else{
-           throw error;            
-       }
+        if(parseFloat(x) === NaN){
+            if(total !== 0 && parseFloat(total) !== NaN){
+                total += x;
+            }
+        }else {
+            if(total === 0){
+                total = x;
+            } else {
+                total += x;
+            }
+        }
     }
     var getTotal = function(){
         return total 
     }
+    var clearTotal = function(){
+        return total = 0;
+    }
     var add = function(x){
         if(typeof x === 'number'){
-        return total += x
+        return memory += x;
         }else{
             throw error;            
         }
@@ -41,13 +50,24 @@ function calculator() {
         }
     }
     var recallMemory = function(){
-        return memory
+        return total = memory
     }
     var saveMemory = function(){
         return memory = total
     }
     var clearMemory = function(){
         return memory = 0
+    }
+    var getBalance = function(){
+        return total = balance;
+    }
+    var deposit = function(){
+        balance += parseFloat(total);
+        clearTotal();
+    }
+    var withdraw = function(){
+        balance = balance -= total;
+        clearTotal();
     }
     return{
         load:load,
@@ -59,5 +79,9 @@ function calculator() {
         recallMemory:recallMemory,
         saveMemory:saveMemory,
         clearMemory:clearMemory,
+        clearTotal:clearTotal,
+        getBalance:getBalance,
+        deposit:deposit,
+        withdraw:withdraw
     }
 }
