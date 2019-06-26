@@ -1,15 +1,37 @@
 const register = calculator();
 
 const display = document.querySelector('.display')
-const calculatorKeys = document.querySelectorAll('button')
+const nums = document.querySelectorAll('.num')
 const clear = document.getElementById('clear')
 const balance = document.getElementById('getBalance')
 const deposit = document.getElementById('depositCash')
 const withdraw = document.getElementById('withdrawCash')
 const ops = document.querySelectorAll('.op')
+const equals = document.getElementById('equal')
 
-for (let i = 0; i < calculatorKeys.length; i++) {
-    calculatorKeys[i].addEventListener('click',updateDisplay)
+for (let i = 0; i < nums.length; i++) {
+    nums[i].addEventListener('click',updateDisplay)
+}
+
+for (let i = 0; i < ops.length; i++) {
+    ops[i].addEventListener('click',operators)
+}
+function operators(){
+    register.saveMemory()
+    register.clearTotal()
+    if(this.id === 'add'){
+        op = '+'
+        display.value = 0   
+    }else if (this.id === 'minus'){
+        op = '-'
+        display.value = 0
+    }else if (this.id === 'multiply'){
+        op = 'X'
+        display.value = 0
+    }else if(this.id === 'divide'){
+        op = '/'
+        display.value = 0
+    }
 }
 
 function updateDisplay(){
@@ -19,7 +41,7 @@ function updateDisplay(){
 
 clear.addEventListener('click',clearDisplay)
 function clearDisplay() {
-    register.clearTotal();
+    display.value = register.clearTotal();
     register.clearMemory();
 }
 
@@ -33,21 +55,27 @@ function getBalance(){
 deposit.addEventListener('click',depositCash)
 
 function depositCash(){
-    register.deposit()
+    register.deposit(display.value)
 }
 withdraw.addEventListener('click',withdrawCash)
 
 function withdrawCash(){
-    register.withdraw()
+    register.withdraw(display.value)
 }
 
-ops[3].addEventListener('click',plus)
-function plus(){
-    register.add();
-}
-
-ops[4].addEventListener('click',equal)
-
-function equal(){
-    register.recallMemory()
+equals.addEventListener('click',compute)
+function compute (){
+    if(op === '+'){
+        let newTotal = parseFloat(register.recallMemory()) + parseFloat(display.value);
+        display.value = newTotal;
+    } else if (op === '-'){
+        let newTotal = parseFloat(register.recallMemory()) - parseFloat(display.value);
+        display.value = newTotal
+    }else if(op === '/'){
+        let newTotal = parseFloat(register.recallMemory()) / parseFloat(display.value);
+        display.value = newTotal;
+    }else if(op === 'X'){
+        let newTotal = parseFloat(register.recallMemory()) * parseFloat(display.value);
+        display.value = newTotal;
+    }
 }

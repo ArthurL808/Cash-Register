@@ -24,8 +24,6 @@ function calculator() {
     var add = function(x){
         if(typeof x === 'number'){
         return memory += x;
-        }else{
-            throw error;            
         }
     }
     var subtract = function(x){
@@ -50,7 +48,7 @@ function calculator() {
         }
     }
     var recallMemory = function(){
-        return total = memory
+        return memory
     }
     var saveMemory = function(){
         return memory = total
@@ -61,12 +59,12 @@ function calculator() {
     var getBalance = function(){
         return total = balance;
     }
-    var deposit = function(){
-        balance += parseFloat(total);
+    var deposit = function(x){
+        balance += parseFloat(x);
         clearTotal();
     }
-    var withdraw = function(){
-        balance = balance -= total;
+    var withdraw = function(x){
+        balance -= parseFloat(x);
         clearTotal();
     }
     return{
