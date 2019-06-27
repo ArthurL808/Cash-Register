@@ -67,6 +67,10 @@ function calculator() {
         balance -= parseFloat(x);
         clearTotal();
     }
+    var addDec = function () {
+        total += '.'
+    }
+    
     return{
         load:load,
         getTotal:getTotal,
@@ -80,6 +84,7 @@ function calculator() {
         clearTotal:clearTotal,
         getBalance:getBalance,
         deposit:deposit,
-        withdraw:withdraw
+        withdraw:withdraw,
+        addDec:addDec
     }
 }

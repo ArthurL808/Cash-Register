@@ -8,6 +8,7 @@ const deposit = document.getElementById('depositCash')
 const withdraw = document.getElementById('withdrawCash')
 const ops = document.querySelectorAll('.op')
 const equals = document.getElementById('equal')
+const dec = document.getElementById('dec')
 
 for (let i = 0; i < nums.length; i++) {
     nums[i].addEventListener('click',updateDisplay)
@@ -73,9 +74,20 @@ function compute (){
         display.value = newTotal
     }else if(op === '/'){
         let newTotal = parseFloat(register.recallMemory()) / parseFloat(display.value);
-        display.value = newTotal;
+        display.value = Math.round(100*newTotal)/100;
     }else if(op === 'X'){
         let newTotal = parseFloat(register.recallMemory()) * parseFloat(display.value);
         display.value = newTotal;
     }
+}
+
+dec.addEventListener('click',inputDec)
+
+function inputDec() {
+    if(this.id === 'dec' && display.value.indexOf('.')!== -1){
+        
+    } else {
+        display.value += this.value;
+        register.addDec();   
+    }   
 }
