@@ -1,9 +1,21 @@
+.header {
+background-image: url('https://upload.wikimedia.org/wikipedia/en/0/03/A_Bathing_Ape_%28logo%29.png');
+height: 175px;
+width: 100%;
+background-position: top;
+background-repeat: no-repeat;
+background-size: contain;
+text-align: center;
+font-size: 5rem;
+font-family: fantasy;
+}
+
 .calculator {
   border: 1px solid #ccc;
   border-radius: 5px;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 55%;
+  left: 85%;
   transform: translate(-50%, -50%);
   width: 400px;
 }
@@ -60,7 +72,10 @@
     grid-column-gap: 15px;
   }
   #equal{
-    grid-column-start: 4
+    grid-column-start: 1;
+    grid-column-end: 6;
+    background-color: rgb(39, 39, 170);
+    color: white;
   }
   .cash{
     color: red;
